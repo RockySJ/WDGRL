@@ -1,8 +1,10 @@
 # WDGRL
 
+**Tensorflow version: 1.3.0**
+
 This repository contains the experiment code implemented in the paper [Wasserstein Distance Guided Representation Learning for Domain Adaptation](https://arxiv.org/abs/1707.01217). The title of the previous version was "Adversarial Representation Learning for Domain Adaptation" and we realized it was too general and thus not proper for this work.
 
-We are still working on the deep experiments of adaptation tasks on digital image datasets. Once we have some results, we will update then.
+The code for experiments in the paper will be provided gradually. We are still working on the deep experiments of adaptation tasks on digital image datasets. Once we have some results, we will update then.
 
 ## Toy experiment
 
@@ -13,3 +15,13 @@ We generate a synthetic dataset to show the superior gradient advantage of WDGRL
 The code files are in the "toy" fold. To make it simple, we create a python file for each approach: non_transfer.py for S-only, dann.py for DANN, wd.py for WDGRL. When we run the programs, we find that WDGRL can sucessfully train a classifer that works well in the target domain.
 
 **Discussions about this topic are welcomed.** 
+
+## Amazon experiment
+
+In amazon_baseline.py, all compared approaches are implemented. As for the MMD implementation, we mainly follow the [code](https://github.com/tensorflow/models/tree/master/research/domain_adaptation). And the WDGRL code is in the amazon_wd.py.
+
+One can run tensorboard to visualize the training by the following command.
+```bash
+cd WDGRL/amazon/log
+tensorboard --logdir='./'
+```
