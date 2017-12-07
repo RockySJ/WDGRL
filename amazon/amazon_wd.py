@@ -98,7 +98,7 @@ with tf.Session() as sess:
         xb = utils.csr_2_sparse_tensor_tuple(batch_csr)
         yb = np.hstack([ys_batch, yt_batch])
         for _ in range(D_train_num):
-            sess.run([wd_d_op], feed_dict={X: xb, y_true: yb, train_flag: True})
+            sess.run([wd_d_op], feed_dict={X: xb, train_flag: True})
         _, train_summary = sess.run([train_op, merged], feed_dict={X: xb, y_true: yb, train_flag: True})
         train_writer.add_summary(train_summary, global_step=i)
 
