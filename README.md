@@ -39,4 +39,5 @@ In this repository, we provide three features for Office-Caltech data: Surf, Goo
 The code is in the path: digits/mnist_usps/
 
 | Methods         |    Source Only | MMD    | CORAL | DANN | WDGRL |
+| :-------- | :--------| :-- | :-- | :-- | :-- |
 | Target accuracy |    89.79       |  98.87 | 99.03 |97.96 | 99.14 |
