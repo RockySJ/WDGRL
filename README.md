@@ -12,7 +12,10 @@ We generate a synthetic dataset to show the superior gradient advantage of WDGRL
 
 ![](toy/toy_visualization.png)
 
-The code files are in the "toy" fold. To make it simple, we create a python file for each approach: non_transfer.py for S-only, dann.py for DANN, wd.py for WDGRL. When we run the programs, we find that WDGRL can sucessfully train a classifer that works well in the target domain.
+The code files are in the "toy" fold. To make it simple, we create a python file for each approach: non_transfer.py for S-only, dann.py for DANN, wd.py for WDGRL. When we run the programs, we find that WDGRL can sucessfully train a classifer that works well in the target domain. DANN fails this toy experiment since the domain classifier's loss is minimized to zero and thus there is a gradient vanish problem.
+
+![](toy/dann_domain_classifier.png)
+![](toy/target_acc.png)
 
 **Discussions about this topic are welcomed.** 
 
@@ -29,3 +32,11 @@ tensorboard --logdir='./'
 ## Office-Caltech experiment
 
 In this repository, we provide three features for Office-Caltech data: Surf, GoogleNet1024, CaffeNet4096. Before we begin the experiment, we should decide which feature to use and how to split the train and test sets. By running the code data_process.py, we can generate the pkl data for each domain. The experiments will be fair if the feature to use and the train/test split are the same for each compared approaches. The results for the new train/test split may be different from the results in the paper. We provide the data we use in our experiments [here](https://drive.google.com/open?id=1apft8Ppw4WmA0SAJgy7cF1PW6-W3njtS) while we also suggest that one can generate his data if he uses a different train/test split or a different evaluation protocol.
+
+## Deep imgae experiments
+
+**MNIST->USPS.**
+The code is in the path: digits/mnist_usps/
+
+| Methods         |    Source Only | MMD    | CORAL | DANN | WDGRL |
+| Target accuracy |    89.79       |  98.87 | 99.03 |97.96 | 99.14 |
